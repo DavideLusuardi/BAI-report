@@ -33,13 +33,13 @@ structure and we may have to try a lot of different architectures before finding
 provides good results. NeuroEvolution of Augmenting Topologies (NEAT) \cite{NEAT} is a genetic
 algorithm which attempts to simultaneously learn weight values and an appropriate topology
 for a neural network. In our implementation \cite{repository}, NEAT is used to evolve an ANN that is
-evaluated to produce the output that encodes what the agent has to do.
+evaluated based on the current inputs to produce the output that encodes what the agent has to do.
 
 Genetic Programming (GP) \cite{GP} is a method used to generate computer programs. Starting
 from an initial population of programs, the GP algorithm will evolve them in order to solve
 predescribed automatic programming and machine learning problems. In our implementation
 \cite{repository}, GP evolves computer programs represented as tree structures, that are evaluated
-recursively to produce an output that says what the agent has to do.
+recursively based on the current inputs to produce an output that says what the agent has to do.
 
 
 % \hfill mds
