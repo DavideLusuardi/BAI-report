@@ -11,7 +11,7 @@ possible to launch the program later and observe through the game interface how 
 The NEAT algorithm managed to evolve a ANN that can reach level 42 in the game with a
 fitness of 1114 after about 160 generations. The ANN is represented in Fig. \ref{fig:NEAT_best}. As we can
 see the network is quite simple, with a small number of nodes and connections: it has just 10
-hidden nodes and 63 enabled connections.
+hidden nodes and 63 enabled connections (that are represented by the solid arrows).
 
 
 In Fig. \ref{fig:NEAT_fitness}, we can observe that the best fitness increases significantly in just a few particular
@@ -58,7 +58,7 @@ to this limitation on the number of frames. The average fitness trend is smoothe
 with a similar increase, reaching about 3000 fitness with a large variance (over 1000).
 
 A weak point of GP is that the generated tree is a bit complex and can be simplified a lot,
-e.g. simplifying some 'if\_then\_else' statements that have as condition pure boolean values as can be
+e.g. simplifying some "if\_then\_else" statements that have as condition pure boolean values as can be
 seen in Fig. \ref{fig:GP_best}.
 
 \begin{figure*}[t!]
