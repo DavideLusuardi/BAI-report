@@ -1,27 +1,27 @@
 \section{Introduction}
 \IEEEPARstart{C}{omputer games} have been linked with artificial intelligence (AI) from its inception.
-Computer games implement rich and complex environments that usually require a real-time
-response by the player and a dynamic strategy with an adaptive behavior in order to reach a
-good score or win depending on the kind of game.
-
+Video games implement rich and complex environments that usually require a real-time
+response by the player and a dynamic strategy with an adaptive behavior in order to get a
+good score or win.
 
 Artificial Neural Networks (ANNs) are computational learning systems inspired by biological
 neural networks that use a network of functions to understand and translate some input data
 into a desired output. An ANN is based on a collection of connected units or nodes called
 artificial neurons, each neuron may be in principle connected to all the others. We can
-differentiate the neurons in 3 categories: input neurons, which receives the input data from 
+differentiate the neurons in three categories: input neurons, which receives the input data from 
 the environment; hidden neurons, which elaborates the input data; output neurons, which outputs the desired output.
 
 They are being deployed in a variety of tasks including playing computer games, but a core
-problem with the standard approach for training them is that we do not know a priori the best
-structure and we may have to try a lot of different architectures before finding one that
-provides good results. NeuroEvolution of Augmenting Topologies (NEAT) \cite{NEAT} is a genetic
-algorithm which attempts to simultaneously learn weight values and an appropriate topology
+problem with the standard training approach is that we do not know a priori the best
+structure and we may have to try a lot of different architectures before finding the one that
+performs well. NeuroEvolution of Augmenting Topologies (NEAT) \cite{NEAT} is a genetic
+algorithm, an example of a topology and weight evolving artificial neural network (TWEANN),
+which attempts to simultaneously learn weight values and an appropriate topology
 for a neural network. In our implementation \cite{repository}, NEAT is used to evolve an ANN that is
-evaluated based on the current inputs to produce the output that encodes what the agent has to do.
+evaluated during the game to output the action the agent has to perform.
 
-Genetic Programming (GP) \cite{GP} is a method used to generate computer programs. Starting
+Genetic Programming (GP) \cite{GP} is a technique used to generate computer programs. Starting
 from an initial population of programs, the GP algorithm will evolve them in order to solve
-predescribed automatic programming and machine learning problems. In our implementation
+predescribed tasks and machine learning problems. In our implementation
 \cite{repository}, GP evolves computer programs represented as tree structures, that are evaluated
-recursively based on the current inputs to produce an output that says what the agent has to do.
+recursively during the game to output the action the agent has to perform.

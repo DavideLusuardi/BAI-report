@@ -1,11 +1,10 @@
 \section{Results}
-In this section we will present the results obtained with the two approaches and a
-comparison between them and randomly piloted spaceships.
+In this section we will present and compare the results obtained with the two approaches. 
+Some results obtained from a randomly piloted battleship are considered as baseline.
 
-The evolution process stores at each run the best ANN or program generated with the
-relative graphs in the folder 'runs' according to the specified approach. In this way it is
-possible to relaunch them later and see through the graphical interface of the game how
-they behave.
+For both NEAT and GP, the evolution process stores at each run the best program generated with the
+relative statistical results and plots in the 'runs' folder. In this way, it is
+possible to launch the program later and observe through the game interface how the battleship behaves.
 
 
 \subsection{NEAT}
@@ -18,8 +17,8 @@ hidden nodes and 63 enabled connections.
 In Fig. \ref{fig:NEAT_fitness}, we can observe that the best fitness increases significantly in just a few particular
 generations, whereas the average fitness does not grow significantly and stays under 200.
 With this fitness trend, we can also notice that the speciation decreases significantly after 20
-generations due to stagnation of a lot of species and just the 2 elitism species will survive
-after about 60 generations as shown in Fig. \ref{fig:NEAT_speciation}.
+generations due to the stagnation of a lot of species: after about 60 generations, 
+just the 2 elitism species will survive as shown in Fig. \ref{fig:NEAT_speciation}.
 
 A weak point of NEAT is that the generated ANN is not really interpretable and we cannot
 understand why the network produces certain output values.
@@ -39,28 +38,28 @@ understand why the network produces certain output values.
 
 
 \subsection{GP}
-The GP algorithm managed to evolve two tree-based programs that can reach over 4000 fitness in the simulation.
+The GP algorithm managed to evolve two tree-based programs that reach over 4000 fitness in the simulation.
 
 The first program reaches level 151 in the
-game with a fitness of 4061 during the evolution process and level 194 and with a fitness of 5212
+game with a fitness of 4061 during the evolution process and level 194 with a fitness of 5212
 without limiting the number of frames. The tree of the program is represented in Fig. \ref{fig:GP_best1}. As
 we can see the tree is quite complex, with 259 nodes and a depth of 10 (the maximum depth
 allowed). In Fig. \ref{fig:GP_fitness1}, we can observe that the best fitness improves a lot in the first 60
 generations reaching the frame threshold.
 
 The second program reaches level 162 in the game with a fitness of 4342 during the evolution process and 
-level 189 and with a fitness of 5076 without limiting the number of frames. The tree of the program is 
-represented in Fig. \ref{fig:GP_best2}. As we can see the tree is a bit less complex than the first one, with 177 nodes 
+level 189 with a fitness of 5076 without limiting the number of frames. The tree of the program is 
+represented in Fig. \ref{fig:GP_best2}. As we can see the tree is a bit less complex than the previous one, with 177 nodes 
 and a depth of 10 (the maximum depth allowed). As shown in Fig. \ref{fig:GP_fitness2}, the best fitness improves significantly 
 only after 100 generations, reaching the frame threshold.
 
 In both cases, for the remaining generations, the best fitness trend increases slightly, probably also due 
-to this limitation to the number of frames. The average fitness trend is smoother and follows the best trend 
+to this limitation on the number of frames. The average fitness trend is smoother and follows the best trend 
 with a similar increase, reaching about 3000 fitness with a large variance (over 1000).
 
 A weak point of GP is that the generated tree is a bit complex and can be simplified a lot,
-e.g. simplifying some 'if\_then\_else' statements with boolean values directly taken from the
-terminal set ('true' or 'false') as conditions.
+e.g. simplifying some 'if\_then\_else' statements that have as condition pure boolean values as can be
+seen in Fig. \ref{fig:GP_best}.
 
 \begin{figure*}[t!]
     \centering
@@ -103,25 +102,25 @@ terminal set ('true' or 'false') as conditions.
 With both techniques, we managed to find a program that is able to play the game well,
 learning to fire almost always to hit enemies while dodging their lasers.
 
-GP demonstrated to have a bigger potential considering our scenario: thanks to the
+Considering our scenario, GP demonstrated to have a bigger potential: thanks to the
 tree-structure and the functions provided, it is able to learn more complex strategies
 reaching level 194, much more than the best evolved ANN. NEAT, instead, struggles to
-evolve the network reaching in the best only level 42. NEAT is probably more suitable for
-different tasks when a program would not be the best option or even it would be impossible
+evolve the network reaching at most level 42. NEAT is probably more suitable for
+tasks where a program would not be the best option or even it would be impossible
 to build.
 
 Moreover, a tree with a limited size can be more interpretable than a ANN and we can easily
 provide an explanation for what the agent is doing.
 
-Observing the agent in action we can say that: both move quite smoother, even though
-neither of them is human-like, GP looks smarter with respect to NEAT. In fact, GP has a
-tendency to stay in the middle of the playing area dodging all the lasers, while NEAT tends to
+Observing the agent in action we can say that both NEAT and GP agents move quite smoother, even though
+neither of them resemble humans. GP agent, in the end, looks smarter and tends 
+to stay in the middle of the playing area dodging all the lasers, whereas NEAT tends to
 remain in the corners.
 
-Across multiple runs, NEAT seems to obtain more stable results than GP that only a few
-times manages to reach very good results as shown in Fig. \ref{fig:boxplots}. Both the techniques are
-pretty good and much better than a randomly piloted spaceship that on average is just able
-to reach level 3.
+Across multiple runs, NEAT seems to obtain more stable results with respect to GP that 
+manages to reach very good results only few times, as shown in Fig. \ref{fig:boxplots}. Both the techniques
+find a program which performs much better than a randomly piloted battleship that on average is able 
+to reach only level 3 with a fitness of about 45 as shown in Fig. \ref{fig:random_boxplot}.
 
 
 \begin{figure*}
@@ -129,20 +128,21 @@ to reach level 3.
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[scale=0.365]{NEAT_Boxplot.png}
-        \caption{NEAT boxplot}
+        \caption{NEAT boxplot.}
     \end{subfigure}
     \hspace{3mm}
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[scale=0.365]{GP_Boxplot.png}
-        \caption{GP boxplot}
+        \caption{GP boxplot.}
     \end{subfigure}
     \hspace{3mm}
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[scale=0.365]{Random_Boxplot.png}
-        \caption{Random-piloted spaceships boxplot}
+        \caption{Random-piloted battleships boxplot.}
+        \label{fig:random_boxplot}
     \end{subfigure}
-       \caption{Comparison between the boxplots of NEAT, GP, and randomly piloted spaceships.}
+       \caption{Comparison between the boxplots of NEAT, GP, and randomly piloted battleships.}
        \label{fig:boxplots}
 \end{figure*}\
