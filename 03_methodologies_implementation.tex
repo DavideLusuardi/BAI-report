@@ -23,12 +23,15 @@ formulated as follows:
 \begin{split}
     fitness = & alien\_kills * 10 + \\
               & spaceship\_kills * 50 + \\
-              & \sum_{h \in battleship\_healths}^{} h / 50 + \\
-              & \sum_{ah \in alien\_healths}^{} \frac{cur\_alien\_health - ah}{cur\_alien\_health} * 10 + \\
-              & \sum_{sh \in spaceships\_healths}^{} 50 - sh
+              & \sum_{h \in battleships\_healths}^{} \frac{h}{50} + \\
+              & \sum_{a \in aliens}^{} \frac{cur\_alien\_health - a.health}{cur\_alien\_health} * 10 + \\
+              & \sum_{s \in spaceships}^{} 50 - s.health
 \end{split}
 \end{equation}
-% TODO: fix
+where $alien\_kills$ is the number of aliens killed, 
+$spaceship\_kills$ is the number of enemy spaceships killed,
+$battleship\_healths$ is a vector of battleship health at the beginning of each level,
+$cur\_alien\_health$ is the initial alien health at the last level reached. 
 
 The fitness function should be maximized and takes into account the number of aliens and
 enemy spaceships killed, the battleship health at each level and the health of aliens and
