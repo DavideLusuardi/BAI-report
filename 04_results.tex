@@ -1,4 +1,3 @@
-
 \section{Results}
 In this section we will present the results obtained with the two approaches and a
 comparison between them and randomly piloted spaceships.
@@ -7,6 +6,7 @@ The evolution process stores at each run the best ANN or program generated with 
 relative graphs in the folder 'runs' according to the specified approach. In this way it is
 possible to relaunch them later and see through the graphical interface of the game how
 they behave.
+
 
 \subsection{NEAT}
 The NEAT algorithm managed to evolve a ANN that can reach level 42 in the game with a
@@ -40,21 +40,20 @@ understand why the network produces certain output values.
 
 \subsection{GP}
 The GP algorithm managed to evolve two tree-based programs that can reach over 4000 fitness in the simulation.
+
 The first program reaches level 151 in the
 game with a fitness of 4061 during the evolution process and level 194 and with a fitness of 5212
 without limiting the number of frames. The tree of the program is represented in Fig. \ref{fig:GP_best1}. As
 we can see the tree is quite complex, with 259 nodes and a depth of 10 (the maximum depth
 allowed). In Fig. \ref{fig:GP_fitness1}, we can observe that the best fitness improves a lot in the first 60
 generations reaching the frame threshold.
-% ; in the remaining generations, the best fitness
-% trend increases slightly, probably also due to this limitation to the number of frames. The
-% average fitness trend is smoother and follows the best trend with a continuous increase: it
-% reaches about 3000 fitness with a large variance (over 1000).
+
 The second program reaches level 162 in the game with a fitness of 4342 during the evolution process and 
 level 189 and with a fitness of 5076 without limiting the number of frames. The tree of the program is 
 represented in Fig. \ref{fig:GP_best2}. As we can see the tree is a bit less complex than the first one, with 177 nodes 
 and a depth of 10 (the maximum depth allowed). As shown in Fig. \ref{fig:GP_fitness2}, the best fitness improves significantly 
 only after 100 generations, reaching the frame threshold.
+
 In both cases, for the remaining generations, the best fitness trend increases slightly, probably also due 
 to this limitation to the number of frames. The average fitness trend is smoother and follows the best trend 
 with a similar increase, reaching about 3000 fitness with a large variance (over 1000).
@@ -100,19 +99,6 @@ terminal set ('true' or 'false') as conditions.
        \label{fig:GP_fitness}
 \end{figure*}
 
-% \begin{figure}[htbp]
-% \centerline{\includegraphics[scale=0.6]{GP_fitness1.png}}
-% \caption{Fitness trend of the GP run that has generated the best program.}
-% \label{fig:GP_fitness1}
-% \end{figure}
-
-% \begin{figure}[htbp]
-% \centerline{\includegraphics[scale=0.6]{GP_fitness2.png}}
-% \caption{Fitness trend of the GP run that has generated the best program.}
-% \label{fig:GP_fitness2}
-% \end{figure}
-
-
 \subsection{Comparison}
 With both techniques, we managed to find a program that is able to play the game well,
 learning to fire almost always to hit enemies while dodging their lasers.
@@ -138,7 +124,6 @@ pretty good and much better than a randomly piloted spaceship that on average is
 to reach level 3.
 
 
-% TODO: fix captions
 \begin{figure*}
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
@@ -158,6 +143,6 @@ to reach level 3.
         \includegraphics[scale=0.4]{Random_Boxplot.png}
         \caption{Random boxplot}
     \end{subfigure}
-       \caption{Comparison between boxplots of NEAT, GP and randomly piloted spaceships.}
+       \caption{Comparison between the boxplots of NEAT, GP, and randomly piloted spaceships.}
        \label{fig:boxplots}
-\end{figure*}
+\end{figure*}\
